@@ -2,6 +2,7 @@
 track_unknown_space: true
 global_frame: map
 rolling_window: false
+robot_base_frame: base_link
 
 plugins: 
 - {name: external,            type: "costmap_2d::StaticLayer"}
@@ -15,3 +16,10 @@ explore_boundary:
   frontier_travel_point: middle
   #set to false for gmapping, true if re-exploring a known area
   explore_clear_space: false
+
+sensor:
+  observation_sources: laser
+  laser: {data_type: LaserScan, clearing: true, marking: true, topic: scan, inf_is_valid: true, raytrace_range: $(arg sensor_range), obstacle_range: $(arg sensor_range)}
+
+inflation:
+  inflation_radius: 0.15
