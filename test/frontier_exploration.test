@@ -1,18 +1,20 @@
 <launch>
 
-  <include file="$(find turtlebot_samples)/launch/exploration.launch" pass_all_args="true" />
+  <include file="$(find turtlebot_samples)/launch/exploration_all.launch" pass_all_args="true" />
 
-  <test type="test_hironx_fullbody.py" pkg="hironx_ros_bridge" test-name="test_hironx_fullbody" time-limit="1000" retry="2"
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
-  <test type="test_hironx_limb.py" pkg="hironx_ros_bridge" test-name="test_hironx_limb" time-limit="200" retry="2"
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
-  <test type="test_hironx_target.py" pkg="hironx_ros_bridge" test-name="test_hironx_target" time-limit="200" retry="2"
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
-  <test type="test_hironx_controller.py" pkg="hironx_ros_bridge" test-name="test_hironx_controller" time-limit="200" retry="2"
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
+  <test pkg="rostest" type="hztest" test-name="hztest_exploration_client" name="hztest_client">
+    <param name="hztest_client/topic" value="/exploration_polygon_marker" />  
+    <param name="hztest_client/hz" value="20.0" />
+    <param name="hztest_client/hzerror" value="2.0" />
+    <param name="hztest_client/test_duration" value="5.0" />    
+    <param name="hztest_client/wait_time" value="30.0" />
+  </test>
 
-  <test type="test_hironx_ik.py" pkg="hironx_ros_bridge" test-name="test_hironx_ik" time-limit="200" 
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
-  <test type="test_hironx_ik_noinit.py" pkg="hironx_ros_bridge" test-name="test_hironx_ik_noinit" time-limit="3000"
-        args="-ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService" />
+  <test pkg="rostest" type="hztest" test-name="hztest_exploration_server" name="hztest_server">
+    <param name="hztest_server/topic" value="/explore_server/status" />  
+    <param name="hztest_server/hz" value="5.0" />
+    <param name="hztest_server/hzerror" value="1.0" />
+    <param name="hztest_server/test_duration" value="5.0" />
+    <param name="hztest_server/wait_time" value="30.0" />
+  </test>
 </launch>
