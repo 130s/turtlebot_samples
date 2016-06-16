@@ -7,6 +7,9 @@
     <arg name="world_file" value="$(arg world_file)"/>
   </include>
 
+  <!-- Move base -->
+  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml" />
+
   <include file="$(find turtlebot_gazebo)/launch/gmapping_demo.launch" />
 
   <include file="$(find turtlebot_samples)/launch/exploration.launch" />
