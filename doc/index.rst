@@ -1,4 +1,11 @@
+==================================
 turtlebot_samples
+==================================
+
+.. contents:: Table of Contents
+   :depth: 3
+
+Introduction
 ==================================
 
 Collection of miscellaneous samples of `Turtlebot <http://wiki.ros.org/Robots/TurtleBot>`_.
