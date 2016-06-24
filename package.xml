@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>turtlebot_samples</name>
-  <version>2.3.3</version>
+  <version>0.0.1</version>
   <description>Collection of miscellaneous samples of Turtlebot that may not be big enough to be a package.</description>
 
   <maintainer email="iisaito@kinugarage.com">Isaac I. Y. Saito</maintainer>
